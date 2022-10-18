@@ -1,0 +1,271 @@
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+  background-color: #ddd;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+h1{
+  background-color: transparent;
+  font-size: 50px;
+  line-height: 1;
+  padding: 50px 0;
+  text-align: center;
+}
+
+h2{
+  font-size: 32px;
+  line-height: 1.5;
+}
+
+nav li{
+  display:inline;
+  padding-right:20px;
+
+}
+
+nav a{
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* 
+When the mouse hovers over any link in the navigation add a wavy underline below it it
+Note: if you aren't seeing the wavy underline in Safari, try Google Chrome or Firefox. */
+
+nav a:hover{
+  text-decoration: underline;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+}
+
+.skip a{
+  background: white;
+  left: 0;
+  padding: 6px;
+  -webkit-transition: top 1s ease-out;
+  transition: top 1s ease-out;
+  z-index: 1;
+  /*Your code here - position relative to the parent */
+  /*Your code here - place 500px left and 40px higher */;
+
+  /* The link using the skip class (“Skip to Main Content”) should be positioned 500px to the left, 
+  and 40px above of the link’s parent element. (So it is hidden by default when we open the page). */
+  position: absolute;
+  /* margin-left: 500px;
+  margin-top: 40px; */
+  /* margin: 40px 0px 0px 500px; */
+  left: -500px;
+  top: -40px; 
+}
+
+.skip a:focus{
+  background: white;
+  top: 0;
+  left: 0;
+  padding: 6px;
+  -webkit-transition: top 1s ease-out;
+  transition: top 1s ease-out;
+  z-index: 1;
+  position: absolute;
+}
+
+/*Your code here*/
+/*reference: http://nemesisdesign.net/blog/accessibility/nice-css-skip-links-appearing-focus/*/
+/*Add the selector and rule to move the skip
+link to the exact top of the page.*/
+
+/*Your code here*/
+
+/*Add the selector and code to put a 2px black
+border around all elements in focus.*/
+*:focus{
+  border: 2px solid black; 
+}
+
+footer{
+  background-color: black;
+  color: white;
+  grid-column: 1 / -1;
+  grid-row: 7 / auto;
+  padding-top: 30px;
+  text-align: center;
+}
+
+nav{
+  background-color: #ddd;
+  padding: 20px 0;
+  /* Adjust the navigation so the text is aligned on the left side */ 
+  text-align: left;
+  /*Your code here*/
+  /*Span the top row*/  
+  display: grid; 
+  grid-row: 1 / span 1; 
+  grid-column: 1 / span all; 
+}
+
+header{
+  background-attachment: fixed; /* Parallax effect */
+  background-position: center;  /* Parallax effect */
+  background-repeat: no-repeat; /* Parallax effect */
+  background-size: cover;       /* Parallax effect */
+  color: white;
+  min-height: 400px;                /* Parallax effect */
+  /* Your code here */
+  /* Set background-image to header.jpg in the images folder */
+  /* Span one row */
+  /* 
+    Uses header.jpg as the background image with a fallback color of #DDDDDD, #858585, #707070, or #B3B3B3.
+  Has a minimum height of 400px */
+
+  /* HELP DEBUG PLS */
+  background-image: url("../images/header.jpg");
+  background-color: #B3B3B3;
+  /* min-height: 400px; */
+  grid-row: 2/ span 1;
+  grid-column: 1/span all; 
+}
+
+header p{
+  display: inline-block;
+  color: white;
+  font-size: 24px;
+  padding: 0 100px;
+  text-align: center;
+}
+
+/* Set the width of all images to 100% */
+img{
+  width: 100%;  
+}
+
+.container{
+  /*Your code here  */
+  /* See documentation for mobile view 
+    .container class
+    Uses grid
+    Has three columns of 1fr 5fr 1fr
+    Has a 30px gap between rows (use row-gap)
+  */
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr; 
+  grid-row-gap: 30px;
+}
+
+.about, .method, .clients, .contact{
+  /*Your code here */
+  /* See documentation for mobile view */
+
+  /* Are placed in 2nd column */
+  grid-column: 2/ span 1; 
+  grid-row: auto/ span 1; 
+
+  /* auto matches to the place */
+
+}
+
+.about-image, .method-image, .clients-image, .contact-image{
+   /*Your code here */
+   /* See documentation for mobile view */
+   /* Span all three columns
+   Have a maximum height of 500px
+   Hide any part of the image that exceeds the div.  (Check that by making sure there is always a gap between the rows.) */
+
+
+  grid-column: 1/ span all;
+  max-height: 500px;
+  overflow: hidden;
+
+}
+
+
+/* Need to debug */
+.about, .about-image{
+  /*Your code here */
+  /* See documentation for mobile view */
+  grid-row: 3/ span 1; 
+}
+
+.method, .method-image{
+  /*Your code here */
+  /* See documentation for mobile view */
+  grid-row: 4/ span 1; 
+ 
+} 
+
+.clients, .clients-image{
+  /*Your code here */
+  /* See documentation for mobile view */
+  grid-row: 5/ span 1; 
+}
+
+.contact, .contact-image{
+  /*Your code here */
+  /* See documentation for mobile view */
+  /* display: flex;
+  justify-content: space-between; */
+  grid-row: 6/ span 1; 
+}
+
+.text-block{
+  background-color: rgba(255, 255, 255, .8);
+  border: 10px solid black;
+  padding: 30px;
+  position: relative;
+  margin: auto;
+  /*Your code here:*/
+  /*Align the content in the center */
+
+  text-align: center;
+  max-height: 25vh; 
+  overflow: scroll; 
+}
+
+/* Desktop view and tablet view below */ 
+@media all and (min-width: 800px){
+
+  .container{
+    /*Your code here */
+    /* See documentation for desktop view */
+    display: grid;
+    grid-template-columns: 50px auto 500px auto 50px; 
+    grid-template-rows: 70px 400px 400px 400px 400px 400px 100px; 
+  }
+
+  nav{
+    background-color: #ddd;
+    text-align: right;
+    padding: 35px 0px;
+    align-self: center;
+
+  }
+  /* need to match up .about to .about-image */
+   .about, .clients, .method-image, .contact-image {
+    /*Your code here */
+    /* See documentation for desktop view */
+    grid-column: 3 / span 2; 
+    
+  }
+
+  .about-image, .clients-image, .method, .contact {
+    /*Your code here */
+    /* See documentation for desktop view */
+    grid-column: 3 / span 2; 
+  }
+}  /*End the media query*/
+
+@media screen and (prefers-reduced-motion: reduce){
+  html{
+    scroll-behavior: auto; /* Removes scroll animation */
+  }
+
+  .skip a{
+    -webkit-transition: none;
+    transition: none;
+  }
+}
